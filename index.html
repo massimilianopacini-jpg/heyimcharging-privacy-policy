@@ -1,66 +1,493 @@
-# ⚡ Hey, I'm Charging!
-
-## Privacy Policy
-
-### 👨💻 Sviluppatore
-Massimiliano Pacini
-
-### 📧 Contatto
-Email: massimiliano.pacini@gmail.com
-
-### 📅 Ultimo Aggiornamento
-8 Febbraio 2026
-
-## 🔒 Dichiarazione sulla Privacy
-Questa app **NON raccoglie, memorizza o condivide alcun dato personale** degli utenti. Hey, I'm Charging! è stata sviluppata con il massimo rispetto per la tua privacy. Tutte le funzionalità funzionano esclusivamente sul tuo dispositivo.
-
-## 💾 Dati Memorizzati Localmente
-L'app salva esclusivamente sul tuo dispositivo:
-*   Frasi personalizzate che crei tramite l'app
-*   Preferenze utente (impostazioni volume, frase selezionata)
-*   Frasi predefinite nella tua lingua
-
-Tutti i dati rimangono **solo sul tuo dispositivo** e non vengono mai trasmessi, sincronizzati o inviati a server esterni.
-
-## 🗣️ Sintesi Vocale (Text-to-Speech)
-Per pronunciare le frasi, l'app utilizza il motore di sintesi vocale (TTS) integrato nel sistema operativo del tuo dispositivo. Questa elaborazione avviene **interamente in locale** sul tuo telefono. L'app non invia alcun testo a server esterni per la conversione in voce e non ha accesso alle impostazioni o ai dati del motore TTS oltre a quelli necessari per la riproduzione.
-
-## 🔐 Permessi Richiesti
-L'app richiede questi permessi per funzionare correttamente:
-*   `RECEIVE_BOOT_COMPLETED` - Per riavviare automaticamente il servizio in background dopo il riavvio del telefono.
-*   `FOREGROUND_SERVICE` - Per eseguire il servizio che rileva la connessione alla carica e pronuncia le frasi, anche quando l'app è chiusa.
-*   `POST_NOTIFICATIONS` (Android 13+) - Per mostrare l'indicatore persistente che il servizio è attivo.
-
-## 📤 Funzionalità di Condivisione
-Quando condividi una frase tramite l'app:
-*   Viene condiviso **solo il testo della frase** scelta.
-*   Viene incluso un link per scaricare l'app dal Play Store.
-*   **NON** vengono condivisi dati personali, impostazioni o informazioni sul dispositivo.
-*   **NON** vengono tracciati i destinatari o il fatto che la condivisione sia avvenuta.
-
-## 🚫 Cosa NON Utilizziamo
-*   Servizi di analytics, tracciamento o monitoraggio.
-*   Pubblicità di qualsiasi tipo.
-*   Integrazioni con social media per il login o la condivisione automatica.
-*   Database o server esterni per memorizzare i tuoi dati.
-*   Servizi di cloud storage.
-*   Cookie o tecnologie di tracking simili.
-
-## 👨👩👧👦 Adatta a Tutte le Età
-Questa app è adatta per utenti di tutte le età e non contiene:
-*   Contenuti inappropriati.
-*   Acquisti in-app.
-*   Pubblicità.
-*   Meccanismi che incoraggiano un utilizzo eccessivo.
-
-## 📧 Contatti
-Per qualsiasi domanda riguardante questa Privacy Policy o il funzionamento dell'app:
-
-**Email:** massimiliano.pacini@gmail.com
-
-Cerco di rispondere a tutte le richieste legittime nel più breve tempo possibile.
-
----
-
-© 2024-2026 Massimiliano Pacini - Hey, I'm Charging!
-*Questa privacy policy è valida dalla data dell'ultimo aggiornamento. App disponibile su Google Play Store.*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Hey, I'm Charging!</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(to right, #4CAF50, #2196F3, #FFC107, #FF5722);
+        }
+        
+        h1 {
+            color: #1a237e;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        h1::before {
+            content: '🔋';
+            font-size: 1.5em;
+        }
+        
+        .subtitle {
+            color: #5d6d7e;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f3f7;
+        }
+        
+        h2 {
+            color: #283593;
+            border-left: 5px solid #4CAF50;
+            padding-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        h3 {
+            color: #37474f;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+            border-left: 5px solid #4CAF50;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .permission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .permission-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #e0e7ff;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .permission-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #4CAF50;
+        }
+        
+        .permission-icon {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        
+        .yes-no {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 5px;
+            font-size: 0.9em;
+        }
+        
+        .yes {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .no {
+            background: #f44336;
+            color: white;
+        }
+        
+        .neutral {
+            background: #ff9800;
+            color: white;
+        }
+        
+        .data-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .flow-item {
+            background: #f8f9fa;
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 150px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .arrow {
+            font-size: 2em;
+            color: #666;
+        }
+        
+        ul {
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        li::before {
+            content: '•';
+            color: #4CAF50;
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #1a237e, #283593);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .contact-email {
+            display: inline-block;
+            background: white;
+            color: #1a237e;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+        
+        .contact-email:hover {
+            background: #4CAF50;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #7b8793;
+            font-size: 0.9em;
+        }
+        
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .badge {
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .badge::before {
+            content: '✓';
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .permission-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .data-flow {
+                flex-direction: column;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+        }
+        
+        .last-updated {
+            background: #fff8e1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ffb300;
+        }
+        
+        .version-note {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hey, I'm Charging!</h1>
+        <div class="subtitle">
+            <strong>Privacy Policy</strong> • Your privacy is our priority
+        </div>
+        
+        <div class="last-updated">
+            <h3>📅 Last Updated</h3>
+            <p><strong>February 4, 2026</strong></p>
+            <p class="version-note">Effective immediately for all app versions</p>
+        </div>
+        
+        <div class="badge-container">
+            <div class="badge">No Data Collection</div>
+            <div class="badge">No Ads</div>
+            <div class="badge">No Tracking</div>
+            <div class="badge">Local Storage Only</div>
+            <div class="badge">Works Offline</div>
+            <div class="badge">Age Appropriate</div>
+        </div>
+        
+        <h2>🔒 Our Privacy Promise</h2>
+        <p><strong>Hey, I'm Charging!</strong> is built on a simple principle: <strong>your data belongs to you</strong>. We designed this app to function entirely on your device without collecting, storing, or transmitting any personal information to us or third parties.</p>
+        
+        <div class="highlight-box">
+            <h3>📋 In Simple Terms</h3>
+            <p><span class="yes yes-no">NO</span> Personal information collected</p>
+            <p><span class="yes yes-no">NO</span> Usage analytics or tracking</p>
+            <p><span class="yes yes-no">NO</span> Data shared with third parties</p>
+            <p><span class="yes yes-no">YES</span> Everything stays on your device</p>
+            <p><span class="yes yes-no">YES</span> Works completely offline</p>
+        </div>
+        
+        <h2>💾 How The App Works</h2>
+        
+        <div class="data-flow">
+            <div class="flow-item">
+                <div class="permission-icon">📱</div>
+                <strong>Your Device</strong>
+                <p>App runs locally</p>
+            </div>
+            <div class="arrow">→</div>
+            <div class="flow-item">
+                <div class="permission-icon">🔌</div>
+                <strong>Charger Connected</strong>
+                <p>System detects charging</p>
+            </div>
+            <div class="arrow">→</div>
+            <div class="flow-item">
+                <div class="permission-icon">🎤</div>
+                <strong>Local TTS</strong>
+                <p>Device speaks phrase</p>
+            </div>
+            <div class="arrow">→</div>
+            <div class="flow-item">
+                <div class="permission-icon">💾</div>
+                <strong>Local Storage</strong>
+                <p>Data stays on device</p>
+            </div>
+        </div>
+        
+        <h2>📁 Data Stored On Your Device</h2>
+        <p>The app stores the following information <strong>exclusively in your device's local storage</strong>:</p>
+        
+        <ul>
+            <li><strong>Custom Phrases:</strong> Text of phrases you create</li>
+            <li><strong>App Preferences:</strong> Volume level, selected phrase, language settings</li>
+            <li><strong>Default Phrases:</strong> Pre-loaded phrases in your device's language</li>
+            <li><strong>App Configuration:</strong> Technical settings for proper functioning</li>
+        </ul>
+        
+        <div class="highlight-box">
+            <p><strong>💡 Important:</strong> All this data is stored locally using Android's internal storage system. It's never transmitted outside your device, not even to our servers (we don't have any!).</p>
+        </div>
+        
+        <h2>🎤 Text-to-Speech Processing</h2>
+        <p>The app uses your device's built-in <strong>Text-to-Speech (TTS) engine</strong> to announce phrases. Key points:</p>
+        
+        <ul>
+            <li>All speech synthesis occurs <strong>locally on your device</strong></li>
+            <li>Only the selected phrase text is sent to the TTS engine</li>
+            <li>No audio recordings are created or stored</li>
+            <li>The TTS process is managed entirely by your device's operating system</li>
+            <li>We have no access to or control over the TTS engine</li>
+        </ul>
+        
+        <h2>🔐 App Permissions Explained</h2>
+        <p>These permissions are required for core functionality:</p>
+        
+        <div class="permission-grid">
+            <div class="permission-card">
+                <div class="permission-icon">🔄</div>
+                <h3>RECEIVE_BOOT_COMPLETED</h3>
+                <p><strong>Purpose:</strong> Restart service after device reboot</p>
+                <p><strong>Why needed:</strong> Ensures charging announcements work consistently without manual restart</p>
+                <p><strong>Data access:</strong> None - only listens for system boot events</p>
+            </div>
+            
+            <div class="permission-card">
+                <div class="permission-icon">📱</div>
+                <h3>FOREGROUND_SERVICE</h3>
+                <p><strong>Purpose:</strong> Run charging detection in background</p>
+                <p><strong>Why needed:</strong> Detects charger connection even when app is closed</p>
+                <p><strong>Data access:</strong> None - monitors system charging state only</p>
+            </div>
+            
+            <div class="permission-card">
+                <div class="permission-icon">🔔</div>
+                <h3>POST_NOTIFICATIONS</h3>
+                <p><strong>Purpose:</strong> Display persistent service notification</p>
+                <p><strong>Why needed:</strong> Android 13+ requirement for foreground services</p>
+                <p><strong>Note:</strong> Notification contains no personal data and cannot be dismissed</p>
+            </div>
+        </div>
+        
+        <h2>🔗 Sharing Features</h2>
+        <p>When you use the "Share Phrase" feature:</p>
+        
+        <ul>
+            <li>Only the <strong>text of the phrase</strong> is shared through your chosen app</li>
+            <li>A <strong>deep link</strong> to add the phrase is included (optional for recipients)</li>
+            <li>A link to the Play Store listing is included for app discovery</li>
+            <li><span class="no yes-no">NO</span> Personal data is included in the share</li>
+            <li><span class="no yes-no">NO</span> We track who you share with or if they install the app</li>
+        </ul>
+        
+        <div class="highlight-box">
+            <h3>🚫 What We Absolutely DON'T Do</h3>
+            <p>For complete transparency, this app does NOT:</p>
+            <ul>
+                <li>Collect personal information (name, email, location, contacts, etc.)</li>
+                <li>Use analytics, tracking, monitoring, or profiling tools</li>
+                <li>Display advertisements of any kind</li>
+                <li>Integrate with social media platforms</li>
+                <li>Use external servers, databases, or cloud storage</li>
+                <li>Use cookies, beacons, pixels, or similar tracking technologies</li>
+                <li>Require internet connection for core functionality</li>
+                <li>Contain in-app purchases or subscriptions</li>
+                <li>Access your files, photos, or other media</li>
+                <li>Read your notifications or messages</li>
+            </ul>
+        </div>
+        
+        <h2>👨👩👧👦 Age Appropriateness</h2>
+        <p>This app is safe and appropriate for users of all ages because it:</p>
+        
+        <ul>
+            <li>Contains no inappropriate or mature content</li>
+            <li>Has no advertisements or commercial promotions</li>
+            <li>Includes no in-app purchases, subscriptions, or payments</li>
+            <li>Doesn't collect any data from users of any age</li>
+            <li>Functions entirely offline without social features</li>
+            <li>Has no chat, messaging, or communication features</li>
+        </ul>
+        
+        <h2>🗑️ Data Deletion</h2>
+        <p>Since all data is stored locally on your device:</p>
+        
+        <ul>
+            <li><strong>Uninstall the app:</strong> All app data is automatically deleted</li>
+            <li><strong>Clear app data:</strong> Via device Settings → Apps → Hey, I'm Charging! → Storage → Clear Data</li>
+            <li><strong>Individual phrases:</strong> Can be deleted within the app using the delete feature</li>
+        </ul>
+        
+        <p>We don't have access to your data, so we cannot delete it from our side (we don't store it in the first place).</p>
+        
+        <h2>📝 Changes to This Policy</h2>
+        <p>We may update this Privacy Policy occasionally to reflect:</p>
+        
+        <ul>
+            <li>Changes in our app's functionality</li>
+            <li>Legal or regulatory requirements</li>
+            <li>Clarifications for better understanding</li>
+        </ul>
+        
+        <p>The "Last Updated" date at the top indicates when revisions were made. We encourage you to review this policy periodically. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+        
+        <div class="contact-box">
+            <h2>📧 Contact Us</h2>
+            <p>If you have questions, concerns, or feedback about:</p>
+            <ul style="color: white; list-style: none; padding: 0;">
+                <li>✓ This Privacy Policy</li>
+                <li>✓ The app's functionality</li>
+                <li>✓ Data practices</li>
+                <li>✓ Feature requests</li>
+            </ul>
+            
+            <p>Please contact us at:</p>
+            <a href="mailto:massimiliano.pacini@gmail.com" class="contact-email">massimiliano.pacini@gmail.com</a>
+            <p style="margin-top: 15px; opacity: 0.9;">We aim to respond to all inquiries within 48 hours.</p>
+        </div>
+        
+        <div class="highlight-box">
+            <h3>⚖️ Legal Compliance</h3>
+            <p>This app and privacy policy are designed to comply with:</p>
+            <ul>
+                <li>Google Play Developer Policies</li>
+                <li>Android Privacy Requirements</li>
+                <li>General data protection principles</li>
+            </ul>
+            <p>The app follows privacy-by-design and privacy-by-default principles.</p>
+        </div>
+        
+        <footer>
+            <p>© 2024-2026 Massimiliano Pacini - Hey, I'm Charging!</p>
+            <p>All rights reserved. This privacy policy is effective from the last updated date shown above.</p>
+            <p>App available exclusively on Google Play Store</p>
+            <p style="font-size: 0.8em; margin-top: 15px; color: #9e9e9e;">
+                Hey, I'm Charging! is a trademark of Massimiliano Pacini. 
+                Android is a trademark of Google LLC.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
