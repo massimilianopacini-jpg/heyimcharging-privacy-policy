@@ -82,6 +82,15 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0, #ffebee);
+            border-left: 5px solid #ff9800;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
         .permission-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -132,27 +141,51 @@
             color: white;
         }
         
-        .data-flow {
+        .share-flow {
             display: flex;
-            align-items: center;
+            align-items: stretch;
             justify-content: center;
             margin: 30px 0;
-            gap: 10px;
+            gap: 5px;
             flex-wrap: wrap;
-        }
-        
-        .flow-item {
-            background: #f8f9fa;
-            padding: 15px 25px;
-            border-radius: 10px;
             text-align: center;
-            min-width: 150px;
-            border: 2px solid #e0e0e0;
         }
         
-        .arrow {
-            font-size: 2em;
+        .flow-step {
+            background: #f8f9fa;
+            padding: 20px 15px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 180px;
+            border: 2px solid #e0e0e0;
+            position: relative;
+        }
+        
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
             color: #666;
+            z-index: 1;
+        }
+        
+        .flow-step:last-child::after {
+            display: none;
+        }
+        
+        .flow-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 50%;
+            line-height: 30px;
+            margin-bottom: 10px;
+            font-weight: bold;
         }
         
         ul {
@@ -249,13 +282,18 @@
                 grid-template-columns: 1fr;
             }
             
-            .data-flow {
+            .share-flow {
                 flex-direction: column;
+                gap: 15px;
             }
             
-            .arrow {
-                transform: rotate(90deg);
-                margin: 10px 0;
+            .flow-step::after {
+                content: '↓';
+                right: 50%;
+                bottom: -15px;
+                top: auto;
+                left: auto;
+                transform: translateX(50%);
             }
         }
         
@@ -273,6 +311,15 @@
             font-style: italic;
             margin-top: 5px;
         }
+        
+        .data-warning {
+            background: #ffebee;
+            border: 1px solid #ffcdd2;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
     </style>
 </head>
 <body>
@@ -284,7 +331,7 @@
         
         <div class="last-updated">
             <h3>📅 Last Updated</h3>
-            <p><strong>February 8, 2026</strong></p>
+            <p><strong>February 4, 2026</strong></p>
             <p class="version-note">Effective immediately for all app versions</p>
         </div>
         
@@ -309,31 +356,51 @@
             <p><span class="yes yes-no">YES</span> Works completely offline</p>
         </div>
         
-        <h2>💾 How The App Works</h2>
+        <h2>🔗 Phrase Sharing Feature</h2>
         
-        <div class="data-flow">
-            <div class="flow-item">
+        <div class="share-flow">
+            <div class="flow-step">
+                <div class="flow-number">1</div>
+                <div class="permission-icon">📝</div>
+                <strong>Select Phrase</strong>
+                <p>Choose phrase in app</p>
+            </div>
+            
+            <div class="flow-step">
+                <div class="flow-number">2</div>
+                <div class="permission-icon">📤</div>
+                <strong>Tap Share</strong>
+                <p>Use device share sheet</p>
+            </div>
+            
+            <div class="flow-step">
+                <div class="flow-number">3</div>
                 <div class="permission-icon">📱</div>
-                <strong>Your Device</strong>
-                <p>App runs locally</p>
+                <strong>Choose App</strong>
+                <p>WhatsApp, Messages, etc.</p>
             </div>
-            <div class="arrow">→</div>
-            <div class="flow-item">
-                <div class="permission-icon">🔌</div>
-                <strong>Charger Connected</strong>
-                <p>System detects charging</p>
+            
+            <div class="flow-step">
+                <div class="flow-number">4</div>
+                <div class="permission-icon">🔗</div>
+                <strong>Text Sent</strong>
+                <p>Only phrase text + deep link</p>
             </div>
-            <div class="arrow">→</div>
-            <div class="flow-item">
-                <div class="permission-icon">🎤</div>
-                <strong>Local TTS</strong>
-                <p>Device speaks phrase</p>
-            </div>
-            <div class="arrow">→</div>
-            <div class="flow-item">
-                <div class="permission-icon">💾</div>
-                <strong>Local Storage</strong>
-                <p>Data stays on device</p>
+        </div>
+        
+        <div class="warning-box">
+            <h3>⚠️ Important Sharing Information</h3>
+            <p>When you share a phrase:</p>
+            <ul>
+                <li><strong>Only phrase text is shared</strong> - No app data, no personal info</li>
+                <li><strong>Deep link included</strong> - Optional for recipients to add phrase</li>
+                <li><strong>Standard device sharing</strong> - Uses Android's native share system</li>
+                <li><strong>No tracking</strong> - We don't know who you share with or if they install</li>
+                <li><strong>Recipient privacy</strong> - They only receive the text you choose to share</li>
+            </ul>
+            
+            <div class="data-warning">
+                <p><strong>🔐 Your Responsibility:</strong> When sharing, the phrase text will be visible to recipients and subject to the privacy policy of the app/service you choose (WhatsApp, Messages, Gmail, etc.).</p>
             </div>
         </div>
         
@@ -390,17 +457,6 @@
                 <p><strong>Note:</strong> Notification contains no personal data and cannot be dismissed</p>
             </div>
         </div>
-        
-        <h2>🔗 Sharing Features</h2>
-        <p>When you use the "Share Phrase" feature:</p>
-        
-        <ul>
-            <li>Only the <strong>text of the phrase</strong> is shared through your chosen app</li>
-            <li>A <strong>deep link</strong> to add the phrase is included (optional for recipients)</li>
-            <li>A link to the Play Store listing is included for app discovery</li>
-            <li><span class="no yes-no">NO</span> Personal data is included in the share</li>
-            <li><span class="no yes-no">NO</span> We track who you share with or if they install the app</li>
-        </ul>
         
         <div class="highlight-box">
             <h3>🚫 What We Absolutely DON'T Do</h3>
@@ -484,7 +540,7 @@
             <p>All rights reserved. This privacy policy is effective from the last updated date shown above.</p>
             <p>App available exclusively on Google Play Store</p>
             <p style="font-size: 0.8em; margin-top: 15px; color: #9e9e9e;">
-                Hey, I'm Charging! is a trademark of Massimiliano Pacini. 
+                "Hey, I'm Charging!" is the name of this application.<br>
                 Android is a trademark of Google LLC.
             </p>
         </footer>
