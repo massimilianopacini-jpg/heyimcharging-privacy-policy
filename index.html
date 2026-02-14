@@ -1,138 +1,39 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informativa sulla Privacy - Hey, I'm Charging!</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #f9f9f9;
-        }
-        h1 { color: #0F4C75; border-bottom: 2px solid #0F4C75; padding-bottom: 10px; }
-        h2 { color: #0F4C75; margin-top: 30px; }
-        .last-updated { 
-            background: #e3f2fd; 
-            padding: 10px; 
-            border-radius: 5px; 
-            font-style: italic;
-            border-left: 4px solid #0F4C75;
-        }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .badge {
-            background: #4CAF50;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 14px;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="badge">✅ App conforme al GDPR</div>
-        <h1>Informativa sulla Privacy</h1>
-        <p class="last-updated">📅 Ultimo aggiornamento: 14 febbraio 2026</p>
-        
-        <p>Ciao! 👋 Sono Massimiliano Pacini, lo sviluppatore di <strong>Hey, I'm Charging!</strong>. 
-        Questa pagina spiega come l'app gestisce i tuoi dati. Niente linguaggio legale complicato, 
-        solo informazioni chiare e trasparenti.</p>
+<!-- Dopo la sezione permessi, prima della sezione backup -->
 
-        <h2>📱 COSA FA QUESTA APP</h2>
-        <p><strong>Hey, I'm Charging!</strong> è un'app che pronuncia frasi quando colleghi il telefono 
-        alla carica. È un'app semplice, utile e rispettosa della tua privacy.</p>
+<h2>📲 CONDIVISIONE DELLE FRASI</h2>
+<p>L'app include una funzione di condivisione che ti permette di inviare le tue frasi 
+preferite agli amici tramite WhatsApp, email, Telegram o qualsiasi altra app di messaggistica.</p>
 
-        <h2>🔍 DATI RACCOLTI</h2>
-        <p><strong>L'APP NON RACCOGLIE NESSUN DATO PERSONALE.</strong> Punto. Nessun account, nessuna email, 
-        nessun numero di telefono, nessuna posizione, nessuna foto, nessun contatto.</p>
-        
-        <p>Tutti i dati dell'app sono <strong>salvati ESCLUSIVAMENTE sul tuo dispositivo</strong> e non vengono 
-        mai trasmessi a me o a terze parti.</p>
-
-        <h2>📝 COSA VIENE SALVATO SUL TUO TELEFONO</h2>
+<p><strong>Come funziona:</strong></p>
+<ul>
+    <li>Selezioni una frase dal menu a tendina</li>
+    <li>Premi il bottone giallo "Condividi con gli amici"</li>
+    <li>L'app prepara automaticamente un messaggio che include:
         <ul>
-            <li><strong>Le tue frasi personalizzate</strong> (quelle che aggiungi tu)</li>
-            <li><strong>Le impostazioni</strong> (volume scelto, frase selezionata, lingua)</li>
-            <li><strong>I backup</strong> (se li crei, vengono salvati nella cartella Download del telefono)</li>
+            <li>La frase selezionata</li>
+            <li>Un link speciale (deep link) che permette di aggiungere automaticamente 
+                quella frase all'app di chi lo riceve</li>
+            <li>Il link al Play Store per scaricare l'app</li>
         </ul>
-        <p>Questi dati sono SOLO sul tuo telefono. Io non posso vederli, Google non può vederli, nessuno può vederli tranne te.</p>
+    </li>
+    <li>Si apre il menu di condivisione standard di Android</li>
+    <li><strong>SEI TU a scegliere</strong> con quale app condividere</li>
+    <li>Il messaggio viene inviato tramite l'app che hai scelto (WhatsApp, Telegram, SMS, ecc.)</li>
+</ul>
 
-        <h2>🔐 PERCHÉ L'APP RICHIEDE CERTI PERMESSI</h2>
-        
-        <h3>📢 Notifiche (POST_NOTIFICATIONS)</h3>
-        <p><strong>Necessario per:</strong> far funzionare l'app quando è chiusa. Il servizio in background 
-        ha bisogno di una notifica persistente per rimanere attivo. Questa notifica NON contiene pubblicità 
-        e NON raccoglie dati.</p>
+<p><strong>Cosa NON succede:</strong></p>
+<ul>
+    <li>❌ L'app NON invia la frase a nessun server esterno</li>
+    <li>❌ Io (lo sviluppatore) NON posso vedere cosa condividi</li>
+    <li>❌ Google NON riceve copia delle tue frasi</li>
+    <li>❌ Nessun dato viene raccolto durante la condivisione</li>
+</ul>
 
-        <h3>🔊 Audio (MODIFY_AUDIO_SETTINGS)</h3>
-        <p><strong>Necessario per:</strong> pronunciare le frasi ad alta voce e regolare il volume 
-        indipendentemente dalle chiamate.</p>
+<p><strong>Il deep link (heyimcharging://addphrase?phrase=...):</strong><br>
+Questo link speciale è come un "passaparola digitale". Quando un amico riceve il messaggio 
+e clicca sul link, se ha installato l'app, la frase viene automaticamente pre-compilata 
+nel campo di testo. Basta un click per aggiungerla! Il link contiene SOLO la frase 
+codificata e non contiene informazioni su chi l'ha inviata.</p>
 
-        <h3>🔌 Stato batteria (ACTION_POWER_CONNECTED/DISCONNECTED)</h3>
-        <p><strong>Necessario per:</strong> sapere quando hai collegato o scollegato il caricabatterie 
-        e attivare la pronuncia automatica.</p>
-
-        <h3>📦 Storage (READ/WRITE_EXTERNAL_STORAGE) - SOLO Android vecchi</h3>
-        <p><strong>Necessario per:</strong> salvare e ripristinare i backup su Android 9 e versioni precedenti. 
-        Su Android 10+ l'app usa lo storage dedicato all'app, senza bisogno di questo permesso.</p>
-
-        <h3>🎧 Bluetooth</h3>
-        <p><strong>Necessario per:</strong> rilevare se hai cuffie Bluetooth connesse e non alterare 
-        il volume in quel caso (così non ti scoppiano i timpani!).</p>
-
-        <h3>🌐 Internet</h3>
-        <p><strong>Necessario per:</strong> permetterti di condividere le frasi con gli amici tramite 
-        i classici metodi di condivisione di Android. L'app NON invia dati a server esterni.</p>
-
-        <h2>💾 BACKUP</h2>
-        <p>Quando crei un backup, viene salvato un file JSON nella cartella Download del telefono. 
-        Questo file contiene le tue frasi e le impostazioni. Il file rimane SUL TUO TELEFONO e 
-        puoi cancellarlo quando vuoi. Se condividi questo file con qualcuno (es. via email), 
-        stai condividendo le tue frasi con quella persona.</p>
-
-        <h2>👶 BAMBINI</h2>
-        <p>L'app è adatta a tutte le età. Non contiene contenuti inappropriati e non raccoglie 
-        dati personali di nessuno, inclusi i bambini.</p>
-
-        <h2>🌐 TRASFERIMENTO DATI INTERNAZIONALI</h2>
-        <p>Non essendoci raccolta dati, non c'è nemmeno trasferimento internazionale di dati. 
-        Tutto rimane sul tuo telefono.</p>
-
-        <h2>✏️ I TUOI DIRITTI</h2>
-        <p>Poiché non raccolgo dati, non devo fornirti accesso, modifica o cancellazione di nulla. 
-        Tuttavia, se hai domande, puoi sempre contattarmi.</p>
-
-        <h2>📬 CONTATTI</h2>
-        <p>Hai domande? Suggerimenti? Vuoi semplicemente dirmi che l'app ti piace? 😊</p>
-        <p>
-            📧 <strong>Email:</strong> [INSERISCI LA TUA EMAIL]<br>
-            🐦 <strong>Twitter/X:</strong> [OPZIONALE - INSERISCI IL TUO PROFILO]<br>
-            💬 <strong>Telegram:</strong> [OPZIONALE - INSERISCI IL TUO CANALE]
-        </p>
-
-        <h2>🔗 LINK UTILI</h2>
-        <p>
-            📥 <a href="https://play.google.com/store/apps/details?id=massimilianopacini.heyimcharging">
-            Hey, I'm Charging! su Google Play</a>
-        </p>
-
-        <hr>
-        <p style="text-align: center; color: #666; font-size: 14px;">
-            ⚡🔋 Grazie per aver scelto Hey, I'm Charging!<br>
-            © 2026 Massimiliano Pacini
-        </p>
-    </div>
-</body>
-</html>
+<p><strong>In sintesi:</strong> la condivisione è VOLONTARIA, LOCALE (sul tuo telefono) 
+e avviene tramite le tue app. Io non c'entro nulla! 😊</p>
